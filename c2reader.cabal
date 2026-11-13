@@ -1,0 +1,40 @@
+cabal-version:      3.0
+name:               c2reader
+version:            0.0.1
+synopsis:           adaptive book reader app for ESL students
+description:        An adaptive book reader app leveraging a word frequency table to automatically
+                    decide what words would be too hard to understand and synonymize them with more common words.
+
+license:            BSD-3-Clause
+category:           Web
+build-type:         Simple
+
+common warnings
+  ghc-options:
+    -Wall -O2 -ferror-spans -fspecialise-aggressively
+
+common options
+  if arch(wasm32)
+    ghc-options:
+      -no-hs-main -optl-mexec-model=reactor "-optl-Wl,--export=hs_start"
+    cpp-options:
+      -DWASM
+
+  if arch(javascript)
+    ld-options:
+      -sEXPORTED_RUNTIME_METHODS=HEAP8
+
+executable c2reader
+  import:
+    options, warnings
+  main-is:
+    Main.hs
+  hs-source-dirs:
+    app
+  other-modules:
+    RawElement
+  build-depends:
+    base < 5,
+    miso >= 1.9
+  default-language:
+    GHC2021
