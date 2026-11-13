@@ -6,6 +6,7 @@ module App
 
 import           Data.Maybe (fromMaybe)
 import           GHC.Generics (Generic)
+import           Help (helpView)
 import           Miso
 import qualified Miso.Html.Element as H
 import qualified Miso.Html.Event as E
@@ -49,6 +50,8 @@ keyActions =
   , ("o", OpenNewBook)
   , ("H", ShowHelp)
   , ("h", ShowHelp)
+  , ("K", ShowHelp)
+  , ("k", ShowHelp)
   , ("S", OpenSettings)
   , ("s", OpenSettings)
   ]
@@ -95,6 +98,7 @@ updateModel OpenNewBook = do
   io_ $ consoleLog "Open New Book"
 updateModel ShowHelp = do
   io_ $ consoleLog "Show Help"
+  navigateTo Help
 updateModel OpenSettings = do
   io_ $ consoleLog "Open Settings"
   navigateTo Settings
@@ -105,6 +109,7 @@ updateModel CancelSettings = do
 viewModel :: Model -> View () props Model Action
 viewModel m = case currentRoute m of
   Index -> welcomeView OpenNewBook ShowHelp OpenSettings
+  Help -> helpView
   Settings -> settingsView m
 
 settingsView :: Model -> View () props Model Action

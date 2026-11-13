@@ -33,6 +33,7 @@ executable c2reader
     app
   other-modules:
     App
+    Help
     RawElement
     Route
     Welcome

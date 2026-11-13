@@ -10,7 +10,7 @@ import           GHC.Generics (Generic)
 import           Miso.JSON
 import           Miso.Router (Router(..))
 
-data Route = Index | Settings
+data Route = Index | Settings | Help
   deriving stock (Eq, Show, Generic)
   deriving anyclass (Router)
 
