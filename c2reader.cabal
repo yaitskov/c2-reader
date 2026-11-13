@@ -37,8 +37,10 @@ executable c2reader
     RawElement
     Route
     Welcome
+    Zip
   build-depends:
     base < 5,
+    containers,
     miso >= 1.9
   default-language:
     GHC2021
