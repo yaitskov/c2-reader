@@ -35,6 +35,7 @@ executable c2reader
     App
     RawElement
     Route
+    Welcome
   build-depends:
     base < 5,
     miso >= 1.9

@@ -13,10 +13,13 @@ import           Miso.JSON
 import           Miso.Lens hiding (at, (.=))
 import           Miso.Router (route)
 import           Route (Route(..))
+import           Welcome (welcomeView)
 
 data Action
   = NoOp
   | Init
+  | OpenNewBook
+  | ShowHelp
   | OpenSettings
   | CancelSettings
   | RouteChanged Route
@@ -42,7 +45,11 @@ keyAction keyEvent
 
 keyActions :: [(MisoString, Action)]
 keyActions =
-  [ ("S", OpenSettings)
+  [ ("O", OpenNewBook)
+  , ("o", OpenNewBook)
+  , ("H", ShowHelp)
+  , ("h", ShowHelp)
+  , ("S", OpenSettings)
   , ("s", OpenSettings)
   ]
 
@@ -84,6 +91,10 @@ updateModel (RouteChanged target) = do
   current <- use this
   io_ $ consoleLog ("Navigate to " <> (ms $ show target))
   assign this current { currentRoute = target }
+updateModel OpenNewBook = do
+  io_ $ consoleLog "Open New Book"
+updateModel ShowHelp = do
+  io_ $ consoleLog "Show Help"
 updateModel OpenSettings = do
   io_ $ consoleLog "Open Settings"
   navigateTo Settings
@@ -93,14 +104,8 @@ updateModel CancelSettings = do
 
 viewModel :: Model -> View () props Model Action
 viewModel m = case currentRoute m of
-  Index -> mainView m
+  Index -> welcomeView OpenNewBook ShowHelp OpenSettings
   Settings -> settingsView m
-
-mainView :: Model -> View () props Model Action
-mainView _m = H.div_
-  [ onWithOptions BUBBLE preventDefault "mousedown" emptyDecoder (\() _ _ -> NoOp) ]
-  [ H.h1_ [] [ text "C2 reader" ]
-  ]
 
 settingsView :: Model -> View () props Model Action
 settingsView _m = H.div_
