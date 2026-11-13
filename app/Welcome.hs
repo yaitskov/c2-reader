@@ -1,3 +1,4 @@
+{-# LANGUAGE MultilineStrings #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 module Welcome
@@ -27,7 +28,10 @@ welcomeView onOpenNewBook onShowHelp onShowSettings =
     , H.span_ [ P.class_ "c2" ] [ text "C2" ]
     , text " bookreader! It's a bookreader dedicated for "
     , H.em_ [] [ text "ESL" ]
-    , text " readers that adapts a book content to user's language level. If a book vocabulary is too hard for you, lower down the threshold for the minimum allowed word frequency in the app settings."
+    , text """ readers that adapts a book content to user's language level. If
+               a book vocabulary is too hard for you, lower down the
+               threshold for the minimum allowed word frequency in the app
+               settings."""
     ]
   , H.p_ []
     [ text "There is no an open book. Click "
