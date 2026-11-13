@@ -28,15 +28,14 @@ data Action
   deriving (Eq, Show)
 
 data KeyEvent = KeyEvent
-  { eventCode   :: MisoString
-  , eventKey    :: MisoString
+  { eventKey    :: MisoString
   , eventRepeat :: Bool
   }
 
 keyEventDecoder :: Decoder KeyEvent
 keyEventDecoder =
   at [] $ withObject "event" $ \o ->
-    KeyEvent <$> o .: "code" <*> o .: "key" <*> o .: "repeat"
+    KeyEvent <$> o .: "key" <*> o .: "repeat"
 
 keyAction :: KeyEvent -> Action
 keyAction keyEvent
@@ -111,6 +110,7 @@ updateModel EscapePressed = do
   current <- use this
   case currentRoute current of
     Help -> updateModel GoBack
+    Settings -> updateModel GoBack
     _ -> io_ $ consoleLog "Escape ignored"
 
 viewModel :: Model -> View () props Model Action
