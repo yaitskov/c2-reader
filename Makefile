@@ -1,14 +1,17 @@
 CABAL := wasm32-wasi-cabal
 
-.PHONY: all update build optim serve clean
+.PHONY: all update build optim serve clean sync clear
 
-all: update clean build optim
+all: update clear sync build optim
 
 update:
 	$(CABAL) update
-clean:
+clear:
 	rm -rf public
-	cp -r static public
+sync:
+	mkdir -p public
+	rsync -r static/ public
+# cp -r static public
 build:
 	$(CABAL) build c2reader
 	app=$$($(CABAL) list-bin c2reader | tail -n 1); \
