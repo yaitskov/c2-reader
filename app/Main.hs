@@ -1,8 +1,6 @@
-{-# LANGUAGE CPP                #-}
-{-# LANGUAGE DeriveAnyClass     #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE DerivingStrategies #-}
-{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE CPP               #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module Main where
 
@@ -14,15 +12,9 @@ import qualified Miso.Html.Element as H
 import qualified Miso.Html.Event as E
 import           Miso.JSON
 import           Miso.Lens hiding (at, (.=))
-import           Miso.Router (Router(..), prettyRoute, route)
+import           Miso.Router (route)
+import           Route (Route(..))
 
-
-data Route = Index | Settings
-  deriving stock (Eq, Show, Generic)
-  deriving anyclass (Router)
-
-instance ToJSON Route
-instance FromJSON Route
 
 data Action
   = NoOp
