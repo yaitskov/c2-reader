@@ -1,0 +1,200 @@
+@property --color {
+  syntax: "<color>";
+  initial-value: black;
+  inherits: true;
+}
+
+@property --link-color {
+  syntax: "<color>";
+  initial-value: #00e;
+  inherits: true;
+}
+
+@property --color2 {
+  syntax: "<color>";
+  initial-value: #666;
+  inherits: true;
+}
+
+@property --background-color {
+  syntax: "<color>";
+  initial-value: #fefefe;
+  inherits: true;
+}
+
+@property --img-color-scheme {
+  syntax: "<string>";
+  initial-value: "light";
+  inherits: true;
+}
+
+@property --border-color {
+  syntax: "<color>";
+  initial-value: black;
+  inherits: true;
+}
+
+@property --btn-back-color {
+  syntax: "<color>";
+  initial-value: #a9a9a9;
+  inherits: true;
+}
+
+@property --btn-back-color2 {
+  syntax: "<color>";
+  initial-value: #d0d0d0;
+  inherits: true;
+}
+
+@property --hover-color {
+  syntax: "<color>";
+  initial-value: #f0f0f0;
+  inherits: true;
+}
+
+@property --surface-color {
+  syntax: "<color>";
+  initial-value: #fff;
+  inherits: true;
+}
+
+@property --surface-variant {
+  syntax: "<color>";
+  initial-value: #fafafa;
+  inherits: true;
+}
+
+@property --border-color-light {
+  syntax: "<color>";
+  initial-value: #d0d0d0;
+  inherits: true;
+}
+
+@property --border-color-medium {
+  syntax: "<color>";
+  initial-value: #b0b0b0;
+  inherits: true;
+}
+
+@property --border-color-strong {
+  syntax: "<color>";
+  initial-value: #c0c0c0;
+  inherits: true;
+}
+
+@property --text-color-strong {
+  syntax: "<color>";
+  initial-value: #222;
+  inherits: true;
+}
+
+@property --text-color-subtle {
+  syntax: "<color>";
+  initial-value: #444;
+  inherits: true;
+}
+
+@property --primary-color {
+  syntax: "<color>";
+  initial-value: #2b6cb0;
+  inherits: true;
+}
+
+@property --primary-color-hover {
+  syntax: "<color>";
+  initial-value: #2a5f96;
+  inherits: true;
+}
+
+@property --danger-color {
+  syntax: "<color>";
+  initial-value: #c53030;
+  inherits: true;
+}
+
+@property --danger-color-hover {
+  syntax: "<color>";
+  initial-value: #a52a2a;
+  inherits: true;
+}
+
+@property --warning-color {
+  syntax: "<color>";
+  initial-value: #e6b800;
+  inherits: true;
+}
+
+@property --warning-bg {
+  syntax: "<color>";
+  initial-value: #fff3b0;
+  inherits: true;
+}
+
+@property --neutral-bg {
+  syntax: "<color>";
+  initial-value: #e8e8e8;
+  inherits: true;
+}
+
+@property --info-border {
+  syntax: "<color>";
+  initial-value: #d0e0f0;
+  inherits: true;
+}
+
+@property --shadow-color {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.2);
+  inherits: true;
+}
+
+@property --shadow-color-strong {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.3);
+  inherits: true;
+}
+
+@property --backdrop-color {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.35);
+  inherits: true;
+}
+
+@property --accent-color {
+  syntax: "<color>";
+  initial-value: pink;
+  inherits: true;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color: #979797;
+    --link-color: #4a90e2;
+    --color2: #797979;
+    --background-color: black;
+    --img-color-scheme: "dark";
+    --border-color: #707070;
+    --btn-back-color2: #222;
+    --btn-back-color: #444;
+    --hover-color: #1d1d1d;
+    --surface-color: #1a1a1a;
+    --surface-variant: #151515;
+    --border-color-light: #333;
+    --border-color-medium: #444;
+    --border-color-strong: #555;
+    --text-color-strong: #e0e0e0;
+    --text-color-subtle: #b0b0b0;
+    --primary-color: #4a90e2;
+    --primary-color-hover: #357abd;
+    --danger-color: #e53e3e;
+    --danger-color-hover: #c53030;
+    --warning-color: #d69e2e;
+    --warning-bg: #744210;
+    --neutral-bg: #2d2d2d;
+    --info-border: #2c5282;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --shadow-color-strong: rgba(0, 0, 0, 0.6);
+    --backdrop-color: rgba(0, 0, 0, 0.6);
+    --accent-color: #ff69b4;
+  }
+}
