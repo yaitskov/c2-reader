@@ -5,3 +5,4 @@ public
 .mcabal
 .emcache
 .direnv
+/tmp/
