@@ -33,33 +33,25 @@
   p:first-child {
       margin-top: 0px;
   }
-  div.container {
-      margin: auto;
-  }
+  margin: auto;
 
   @media (width <= 350px) {
-      h1 {
-          font-size: 1.4rem;
-      }
-      padding: 10px 7px;
+    h1 {
+      font-size: 1.4rem;
+    }
+    padding: 10px 7px;
   }
 
   @media (width > 350px) {
-      h1 {
-          font-size: 1.9rem;
-      }
-      div.container {
-          max-width: 300px;
-      }
+    h1 {
+      font-size: 1.9rem;
+    }
+    max-width: 300px;
   }
   @media (width > 650px) {
-      div.container {
-          max-width: 600px;
-      }
+    max-width: 600px;
   }
   @media (width > 850px) {
-      div.container {
-          max-width: 800px;
-      }
+    max-width: 800px;
   }
 }
