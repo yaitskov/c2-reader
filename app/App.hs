@@ -22,7 +22,8 @@ data Action
   | OpenNewBook
   | ShowHelp
   | OpenSettings
-  | CancelSettings
+  | GoBack
+  | EscapePressed
   | RouteChanged Route
   deriving (Eq, Show)
 
@@ -54,6 +55,7 @@ keyActions =
   , ("k", ShowHelp)
   , ("S", OpenSettings)
   , ("s", OpenSettings)
+  , ("Escape", EscapePressed)
   ]
 
 data Model = Model
@@ -102,9 +104,14 @@ updateModel ShowHelp = do
 updateModel OpenSettings = do
   io_ $ consoleLog "Open Settings"
   navigateTo Settings
-updateModel CancelSettings = do
-  io_ $ consoleLog "Cancel Settings"
+updateModel GoBack = do
+  io_ $ consoleLog "Go back"
   io_ back
+updateModel EscapePressed = do
+  current <- use this
+  case currentRoute current of
+    Help -> updateModel GoBack
+    _ -> io_ $ consoleLog "Escape ignored"
 
 viewModel :: Model -> View () props Model Action
 viewModel m = case currentRoute m of
@@ -118,7 +125,7 @@ settingsView _m = H.div_
   [ H.h1_  [] [ text "Settings" ]
   , H.div_ []
     [ H.button_
-      [ E.onClick CancelSettings ]
+      [ E.onClick GoBack ]
       [ text "Cancel" ]
     ]
   ]
