@@ -2,9 +2,11 @@ import { WASI, OpenFile, File, ConsoleStdout } from "https://cdn.jsdelivr.net/np
 import ghc_wasm_jsffi from "./ghc_wasm_jsffi.js";
 import { load, push, pop } from "./idb.js";
 import { unzip } from "./zip.js";
+import { persist, list, get, remove } from "./blobstore.js";
 
 globalThis.c2readerIdb = { load, push, pop };
 globalThis.c2zip = { unzip };
+globalThis.c2blob = { persist, list, get, remove };
 
 const rawExample = document.createElement("div");
 rawExample.id = "raw-example";

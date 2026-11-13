@@ -33,6 +33,7 @@ executable c2reader
     app
   other-modules:
     App
+    BlobStore
     Help
     RawElement
     Route
@@ -41,6 +42,8 @@ executable c2reader
   build-depends:
     base < 5,
     containers,
-    miso >= 1.9
+    miso >= 1.9,
+    time,
+    transformers
   default-language:
     GHC2021
